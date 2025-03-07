@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中医文化传承</title>
+    <style>
+        :root {
+            --primary-color: #4a4a3f;
+            --secondary-color: #d6b361;
+            --text-color: #634f3d;
+            --background-color: #f0f0e0;
+        }
+
+        body {
+            font-family: '楷体', SimSun, sans-serif;
+            background-color: var(--background-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .boxed-section {
+            border: 2px solid var(--primary-color);
+            border-radius: 12px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 3rem 0;
+        }
+
+        .navbar {
+            background-color: #2c5f2d;
+            border-bottom: 1px solid #449545;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            padding: 0.8rem 1.2rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #449545;
+            color: white;
+        }
+
+        .hero {
+            height: 80vh;
+            background-image: url('images/山水背景.jpg');
+            background-blend-mode: multiply;
+            filter: sepia(0.1) brightness(0.9);
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 3.6rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        p {
+            color: var(--text-color);
+            font-size: 1.2rem;
+            text-indent: 2em;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 3rem 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--secondary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+
+        .timeline-item {
+            padding-left: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .date {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .event {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        .therapy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .method-icon {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            /* 修改为cover保持比例并填充 */
+            border-radius: 4px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+        }
+
+        .contact-section {
+            background-color: var(--background-color);
+            padding: 2rem 4rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 4rem 0;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--secondary-color);
+            padding-left: 2rem;
+        }
+
+        .contact-item svg {
+            width: 24px;
+            height: 24px;
+            margin-right: 1rem;
+            fill: var(--primary-color);
+        }
+
+        .contact-text {
+            color: var(--text-color);
+        }
+
+        .phone {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .address {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .wechat {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+        }
+
+        .email {
+            font-size: 1rem;
+            color: #3a2d3a;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .timeline-item {
+                padding-left: 1rem;
+            }
+
+            .contact-item {
+                flex-direction: column;
+                padding-left: 0;
+            }
+        }
+
+        .logo {
+            width: 280px;
+            height: 180px;
+            padding: 1rem;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo"></div>
+            <ul class="nav-links">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#history">历史长河</a></li>
+                <li><a href="#therapy">特色疗法</a></li>
+                <li><a href="#herba">中药典籍</a></li>
+                <li><a href="#contact">联系方式</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>千年智慧 医道传承</h1>
+                <p>阴阳五行藏天理，望闻问切见真章</p>
+            </div>
+        </section>
+
+        <section id="history" class="content-section">
+            <h2>历史长河</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="date">奠基期（先秦-汉）</div>
+                    <div class="event">
+                        <p>- 《黄帝内经》成书，确立阴阳五行、藏象理论；</P>
+                        <p>- 《伤寒杂病论》提出辨证论治，张仲景被尊为“医圣”；</p>
+                        <p>- 《神农本草经》系统整理药物学。</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">发展期（魏晋-唐）</div>
+                    <div class="event">
+                        <p>- 针灸学成熟（皇甫谧《针灸甲乙经》）；</P>
+                        <p>- 孙思邈著《千金方》，集唐代医术大成；</p>
+                    </div>
+                </div>
+                <div class="date">完善期（明-清）</div>
+                <div class="event">
+                    <p>- 李时珍《本草纲目》收药1892种，成世界药典巨著.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="therapy" class="content-section">
+            <h2>特色疗法</h2>
+            <div class="therapy-grid">
+                <div class="therapy-item">
+                    <img src="images/acupuncture.jpg" alt="针灸疗法" class="method-icon">
+                    <h3>针灸疗法</h3>
+                    <p>疏通经络，调和气血</p>
+                </div>
+                <div class="therapy-item">
+                    <img src="images/herbal-medicine.jpg" alt="中药疗法" class="method-icon">
+                    <h3>中药疗法</h3>
+                    <p>辨证施治，药到病除</p>
+                </div>
+                <div class="therapy-item">
+                    <img src="images/massage.jpg" alt="推拿疗法" class="method-icon">
+                    <h3>推拿疗法</h3>
+                    <p>舒筋活络，缓解疼痛</p>
+                </div>
+            </div>
+            <section id="herba" class="content-section">
+                <h2>中药典籍</h2>
+
+                <div class="book-category">
+                    <div class="boxed-section">
+                        <div class="book-grid">
+                            <div class="book-card">
+                                <div class="book-info">
+                                    <h3>一、古代经典著作</h3>
+                                    <h3>《神农本草经》</h3>
+                                    <p><strong>成书时间：</strong>约东汉时期（公元1世纪-2世纪）</p>
+                                    <p><strong>特点：</strong><br>
+                                        • 中国现存最早药学专著，被誉为"中药之祖"<br>
+                                        • 分上中下三品，收录365种药物<br>
+                                        • 提出"七情配伍"理论（相须、相使、相畏等）</p>
+                                    <h3>《伤寒杂病论》</h3>
+                                    <p><strong>作者：</strong>张仲景（东汉末年）</p>
+                                    <p><strong>内容：</strong><br>
+                                        •中医临床经典，确立“辨证论治”体系。<br>
+                                        • 附载113首方剂及药物用法，如麻黄汤、桂枝汤等沿用至今。
+                                        <br>
+                                    <h3>《本草纲目》</h3>
+                                    <p><strong>作者：</strong>李时珍（明朝，1518-1593）</p>
+                                    <p><strong>成就：</strong><br>
+                                        • 药物学巨著，收载1892种药物，附图1109幅。<br>
+                                        • 总结历代药学成果，补充民间验方，纠正前人错误。<br>
+                                        • 影响全球中医药学发展，被译为多国文字。</p>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>二、明清时期重要著作</h3>
+                        <h3>《本草正》</h3>
+                        <p><strong>作者：</strong>缪希雍（李时珍弟子）</p>
+                        <p><strong>特点：</strong><br>
+                            • 注重药物炮制与临床应用<br>
+                            • 纠正前人配伍禁忌</p>
+                        <h3>《温病条辨》</h3>
+                        <p><strong>作者：</strong>吴鞠通（清朝）</p>
+                        <p><strong>内容：</strong><br>
+                            • 温病学经典，创立“卫气营血”辨证体系。<br>
+                            • 推荐银翘散、白虎汤等治温热病方剂，完善中药治疗外感病理论。</p>
+                    </div>
+                </div>
+                </div>
+                <div class="boxed-section">
+                    <div class="book-grid">
+                        <div class="book-card">
+                            <div class="book-info">
+                                <h3>三、现代中药典籍</h3>
+                                <h3>《中华人民共和国药典》</h3>
+                                <p><strong>性质：</strong>国家法定药品标准（每5年修订）</p>
+                                <p><strong>内容：</strong><br>
+                                    • 收载中药材、中成药等质量标准<br>
+                                    • 规定性状、鉴别、含量测定等检测方法</p>
+                                <h3>《中华本草》</h3>
+                                <p><strong>成书时间：</strong>1998年</p>
+                                <p><strong>特点：</strong><br>
+                                    • 现代大型中药辞书，整合历代典籍与现代研究成果。<br>
+                                    •收录8980种中药，涵盖化学成分、药理作用、临床应用等。 </p>
+                            </div>
+                        </div>
+                    </div>
+
+            </section>
+    </main>
+    <section id="contact" class="content-section">
+        <h2>联系方式</h2>
+        <div class="contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#449545">
+                <path d="M2 22l12-12m-12 12l12-12" />
+            </svg>
+            <div class="contact-text">
+                <p class="phone">010-61253886</p>
+                <p class="address">安徽省淮北市沱河东路8号</p>
+            </div>
+        </div>
+        <div class="contact-item">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#449545">
+                <path d="M4 6h16v2H4V6zm0 6h16v2H4V12zm0 6h16v2H4V18zm4-14h12v2H4v2zm4 0h12v2H4v2zm4 0h12v2H4v2z" />
+            </svg>
+            <div class="contact-text">
+                <p class="wechat">微信：123456789</p>
+                <p class="email">service@zhongyimedicine.com</p
